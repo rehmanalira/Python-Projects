@@ -13,6 +13,8 @@ IT WILL GAVE ONE MORE ERROR WHICH IS PYAUDIO NOT FOUND  YOU JUST SOLVE ALOSO THI
 error which it gives:
                     AttributeError: Could not find PyAudio; check installation
 
+for removing this error just search for pyaudio un official and then download that wheel in first website according to your python version
+ after download open power shell in that file and write   pip install (that file name you install)
 
 '''
 
