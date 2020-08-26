@@ -13,6 +13,8 @@ IT WILL GAVE ONE MORE ERROR WHICH IS PYAUDIO NOT FOUND  YOU JUST SOLVE ALOSO THI
 error which it gives:
                     AttributeError: Could not find PyAudio; check installation
 
+
+
 for removing this error just search for pyaudio un official and then download that wheel in first website according to your python version
  after download open power shell in that file and write   pip install (that file name you install)
 
@@ -54,7 +56,8 @@ def time_teller(): # it is a function which is tell the curreent date and time
 def take_command(): # it is a function first which is used to convert audio and return us as stirng also we can say which is used
                     # to recongnize our voice through the microphone
 
-    r=sr.Recognizer()  # it start recongnizing from here
+    r=sr.Recognizer() # it start recongnizing from here
+
     with sr.Microphone() as source: # we use microphone which is in the module of speech_recognizer which is used to take
                                 # voice from the microphone
         print("Sir I am Listening......") # after using microphone it starts listing
@@ -65,15 +68,16 @@ def take_command(): # it is a function first which is used to convert audio and 
         audio=r.listen(source) # here we store all the listening microphone string in the audio and it will be play
 
 
-    try: # as we know try and except if it will run then this process executed
-        print("Recognizing....")
-        querry=r.recognize_google(audio,language='en-us') # it will use the google languge ex google assistant here
-    except Exception as e:
-      #  print(e) it prints the problem if occured
-        print("Sorry sir i cant listen you please say again..")
-        return "None" # return none as string No Problem
+        try: # as we know try and except if it will run then this process executed
+            print("Recognizing....")
+            querry=r.recognize_google(audio,language='en-in') # it will use the google languge ex google assistant here
+            print(f"User said {querry}")
+        except Exception as e:
+        #  print(e) it prints the problem if occured
+            print("Sorry sir i cant listen you please say again..")
+            return "None" # return none as string No Problem
 
-    return querry # return querry if there will any problem it again return the querry
+        return querry # return querry if there will any problem it again return the querry
 if __name__ == '__main__':
     time_teller()
     while True: # use while run again and again
@@ -83,7 +87,7 @@ if __name__ == '__main__':
             print("Searching in wikipedia...")
             querry=querry.replace("wikipedia", "") # here we replace wikipedia with empty string
 
-            results=wikipedia.summary(querry, sentences=2) # here we store all summry in results and sentence means it will read only two sentences
+            results=wikipedia.summary(querry, sentences=3) # here we store all summry in results and sentence means it will read only two sentences
             print(results) # it will prints the all search from wiki pedia
 
             speak(results) # iit will speaks the search result
@@ -104,27 +108,16 @@ if __name__ == '__main__':
             webbrowser.open("instagram.com")
         elif 'play music' in querry:
 
-            songs_directory='R:\\RA new songs' # here we gave the directory of our favrout songs \\ means who escape the sequence
+            songs_directory='R:\\RA new songs\\apna.mp4' # here we gave the directory of our favrout songs \\ means who escape the sequence
             songs=os.mkdir(songs_directory) # it will have directory of the sogs
 
             #songs=songs[random.randint(len(songs))] it will pick the random but i not implement this
 
-            print(songs)
+            #print(songs)
             os.startfile(os.path.join(songs_directory,songs[1])) #[1] means it will play that song who as that index we can also use random
 
 
         # now write as much as you want add more websites also add your computer
         # if you adding your computer file rember change the directory in this code directory is mine used
-
-
-
-
-
-
-
-
-
-
-
 
 
